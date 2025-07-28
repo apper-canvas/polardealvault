@@ -5,33 +5,39 @@ import Select from "@/components/atoms/Select";
 import ApperIcon from "@/components/ApperIcon";
 
 const DealForm = ({ deal, onSubmit, onCancel, platforms = [] }) => {
-  const [formData, setFormData] = useState({
+const [formData, setFormData] = useState({
     productName: "",
     platform: "",
     originalPrice: "",
     ltdPrice: "",
     status: "Active",
+    startDate: "",
+    endDate: "",
     expiryDate: "",
+    description: "",
     notes: ""
   });
 
   const [errors, setErrors] = useState({});
 
   useEffect(() => {
-    if (deal) {
+if (deal) {
       setFormData({
         productName: deal.productName || "",
         platform: deal.platform || "",
         originalPrice: deal.originalPrice?.toString() || "",
         ltdPrice: deal.ltdPrice?.toString() || "",
         status: deal.status || "Active",
+        startDate: deal.startDate ? deal.startDate.split("T")[0] : "",
+        endDate: deal.endDate ? deal.endDate.split("T")[0] : "",
         expiryDate: deal.expiryDate ? deal.expiryDate.split("T")[0] : "",
+        description: deal.description || "",
         notes: deal.notes || ""
       });
     }
   }, [deal]);
 
-  const validateForm = () => {
+const validateForm = () => {
     const newErrors = {};
 
     if (!formData.productName.trim()) {
@@ -54,6 +60,10 @@ const DealForm = ({ deal, onSubmit, onCancel, platforms = [] }) => {
       newErrors.ltdPrice = "LTD price should be less than original price";
     }
 
+    if (formData.startDate && formData.endDate && formData.startDate > formData.endDate) {
+      newErrors.endDate = "End date must be after start date";
+    }
+
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
@@ -65,10 +75,12 @@ const DealForm = ({ deal, onSubmit, onCancel, platforms = [] }) => {
       return;
     }
 
-    const dealData = {
+const dealData = {
       ...formData,
       originalPrice: parseFloat(formData.originalPrice),
       ltdPrice: parseFloat(formData.ltdPrice),
+      startDate: formData.startDate || null,
+      endDate: formData.endDate || null,
       expiryDate: formData.expiryDate || null
     };
 
@@ -135,6 +147,33 @@ const DealForm = ({ deal, onSubmit, onCancel, platforms = [] }) => {
         />
       </div>
 
+<div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <FormField
+          label="Deal Start Date (Optional)"
+          type="date"
+          value={formData.startDate}
+          onChange={(e) => handleChange("startDate", e.target.value)}
+          error={errors.startDate}
+        />
+
+        <FormField
+          label="Deal End Date (Optional)"
+          type="date"
+          value={formData.endDate}
+          onChange={(e) => handleChange("endDate", e.target.value)}
+          error={errors.endDate}
+        />
+      </div>
+
+      <FormField
+        label="Deal Description (Optional)"
+        type="textarea"
+        value={formData.description}
+        onChange={(e) => handleChange("description", e.target.value)}
+        placeholder="Describe what makes this deal special, key features included, or any important details..."
+        rows={3}
+      />
+
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         <FormField
           label="Status"
@@ -158,12 +197,12 @@ const DealForm = ({ deal, onSubmit, onCancel, platforms = [] }) => {
         />
       </div>
 
-      <FormField
-        label="Notes (Optional)"
+<FormField
+        label="Additional Notes (Optional)"
         type="textarea"
         value={formData.notes}
         onChange={(e) => handleChange("notes", e.target.value)}
-        placeholder="Add any additional notes about this deal..."
+        placeholder="Add any additional notes, personal reminders, or tracking information..."
         rows={3}
       />
 

@@ -69,7 +69,7 @@ const DealCard = ({ deal, onEdit, onDelete }) => {
       </CardHeader>
 
       <CardContent className="pt-0">
-        <div className="space-y-4">
+<div className="space-y-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-4">
               <div>
@@ -92,16 +92,44 @@ const DealCard = ({ deal, onEdit, onDelete }) => {
             )}
           </div>
 
-          {deal.expiryDate && (
-            <div className="flex items-center gap-2 text-sm text-gray-600">
-              <ApperIcon name="Calendar" className="h-4 w-4" />
-              <span>Expires {format(new Date(deal.expiryDate), "MMM dd, yyyy")}</span>
+          {deal.description && (
+            <div className="text-sm text-gray-700 bg-blue-50 rounded-lg p-3 border-l-4 border-primary-200">
+              <div className="flex items-start gap-2">
+                <ApperIcon name="Info" className="h-4 w-4 text-primary-600 mt-0.5 flex-shrink-0" />
+                <p>{deal.description}</p>
+              </div>
             </div>
           )}
 
+          <div className="space-y-2">
+            {(deal.startDate || deal.endDate) && (
+              <div className="flex items-center gap-2 text-sm text-gray-600">
+                <ApperIcon name="CalendarDays" className="h-4 w-4" />
+                <span>
+                  {deal.startDate && deal.endDate 
+                    ? `${format(new Date(deal.startDate), "MMM dd")} - ${format(new Date(deal.endDate), "MMM dd, yyyy")}`
+                    : deal.startDate 
+                    ? `Starts ${format(new Date(deal.startDate), "MMM dd, yyyy")}`
+                    : `Ends ${format(new Date(deal.endDate), "MMM dd, yyyy")}`
+                  }
+                </span>
+              </div>
+            )}
+
+            {deal.expiryDate && (
+              <div className="flex items-center gap-2 text-sm text-gray-600">
+                <ApperIcon name="Calendar" className="h-4 w-4" />
+                <span>Expires {format(new Date(deal.expiryDate), "MMM dd, yyyy")}</span>
+              </div>
+            )}
+          </div>
+
           {deal.notes && (
             <div className="text-sm text-gray-600 bg-gray-50 rounded-lg p-3">
-              {deal.notes}
+              <div className="flex items-start gap-2">
+                <ApperIcon name="StickyNote" className="h-4 w-4 text-gray-500 mt-0.5 flex-shrink-0" />
+                <p>{deal.notes}</p>
+              </div>
             </div>
           )}
 
