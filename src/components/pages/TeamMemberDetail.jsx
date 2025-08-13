@@ -1,15 +1,17 @@
-import React, { useState, useEffect } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
-import { toast } from 'react-toastify';
-import { format } from 'date-fns';
-import ApperIcon from '@/components/ApperIcon';
-import Button from '@/components/atoms/Button';
-import Card from '@/components/atoms/Card';
-import Loading from '@/components/ui/Loading';
-import Error from '@/components/ui/Error';
-import TeamMemberForm from '@/components/molecules/TeamMemberForm';
-import teamMemberService from '@/services/api/teamMemberService';
-import projectService from '@/services/api/projectService';
+import React, { useEffect, useState } from "react";
+import { useNavigate, useParams } from "react-router-dom";
+import { toast } from "react-toastify";
+import { format } from "date-fns";
+import ApperIcon from "@/components/ApperIcon";
+import TeamMemberForm from "@/components/molecules/TeamMemberForm";
+import Loading from "@/components/ui/Loading";
+import Error from "@/components/ui/Error";
+import Button from "@/components/atoms/Button";
+import Card from "@/components/atoms/Card";
+import Projects from "@/components/pages/Projects";
+import Tasks from "@/components/pages/Tasks";
+import teamMemberService from "@/services/api/teamMemberService";
+import projectService from "@/services/api/projectService";
 
 function TeamMemberDetail() {
   const { id } = useParams();
@@ -20,16 +22,15 @@ function TeamMemberDetail() {
   const [error, setError] = useState(null);
   const [isFormOpen, setIsFormOpen] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
-
   useEffect(() => {
     fetchMemberDetails();
     fetchProjects();
   }, [id]);
 
-  const fetchMemberDetails = async () => {
+const fetchMemberDetails = async () => {
     try {
       setLoading(true);
-      const memberData = teamMemberService.getById(id);
+      const memberData = await teamMemberService.getById(id);
       if (!memberData) {
         setError('Team member not found');
         return;
@@ -44,12 +45,13 @@ function TeamMemberDetail() {
     }
   };
 
-  const fetchProjects = async () => {
+const fetchProjects = async () => {
     try {
-      const projectData = projectService.getAll();
-      setProjects(projectData);
+      const projectData = await projectService.getAll();
+      setProjects(projectData || []);
     } catch (err) {
       console.error('Error fetching projects:', err);
+      setProjects([]);
     }
   };
 
@@ -57,10 +59,10 @@ function TeamMemberDetail() {
     setIsFormOpen(true);
   };
 
-  const handleDelete = () => {
-    if (window.confirm(`Are you sure you want to remove ${member.name} from the team? This action cannot be undone.`)) {
+const handleDelete = async () => {
+    if (window.confirm(`Are you sure you want to remove ${member?.name} from the team? This action cannot be undone.`)) {
       try {
-        teamMemberService.delete(member.Id);
+        await teamMemberService.delete(member.Id);
         toast.success(`${member.name} has been removed from the team`);
         navigate('/team');
       } catch (err) {
@@ -73,7 +75,7 @@ function TeamMemberDetail() {
   const handleFormSubmit = async (memberData) => {
     try {
       setIsSubmitting(true);
-      const updatedMember = teamMemberService.update(member.Id, memberData);
+      const updatedMember = await teamMemberService.update(member.Id, memberData);
       setMember(updatedMember);
       setIsFormOpen(false);
       toast.success(`${memberData.name} has been updated successfully`);
