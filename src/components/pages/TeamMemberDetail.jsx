@@ -11,6 +11,7 @@ import Card from "@/components/atoms/Card";
 import Projects from "@/components/pages/Projects";
 import Tasks from "@/components/pages/Tasks";
 import teamMemberService from "@/services/api/teamMemberService";
+import issueService from "@/services/api/issueService";
 import projectService from "@/services/api/projectService";
 
 function TeamMemberDetail() {
@@ -296,30 +297,36 @@ const handleDelete = async () => {
         </Card>
 
         {/* Skills & Info */}
+{/* Skills & Info */}
         <div className="space-y-6">
-          {/* Skills */}
           <Card className="p-6">
             <div className="flex items-center justify-between mb-6">
-              <h2 className="text-lg font-semibold text-gray-900">Skills</h2>
-              <ApperIcon name="Award" size={20} className="text-gray-400" />
+              <h2 className="text-lg font-semibold text-gray-900">Skills & Information</h2>
+              <ApperIcon name="User" size={20} className="text-gray-400" />
             </div>
             
-            {member.skills.length === 0 ? (
-              <p className="text-gray-500 text-center py-4">No skills listed</p>
-            ) : (
-              <div className="flex flex-wrap gap-2">
-                {member.skills.map((skill, index) => (
-                  <span
-                    key={index}
-                    className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-blue-100 text-blue-800"
-                  >
-                    {skill}
-                  </span>
-                ))}
-              </div>
-            )}
+            <div className="space-y-4">
+              {member.skills && member.skills.length > 0 && (
+                <div>
+                  <h3 className="text-sm font-medium text-gray-700 mb-2">Skills</h3>
+                  <div className="flex flex-wrap gap-2">
+                    {member.skills.map((skill, index) => (
+                      <span key={index} className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800">
+                        {skill}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              )}
+              
+              {member.bio && (
+                <div>
+                  <h3 className="text-sm font-medium text-gray-700 mb-2">About</h3>
+                  <p className="text-sm text-gray-600">{member.bio}</p>
+                </div>
+              )}
+            </div>
           </Card>
-
           {/* Performance Metrics */}
           <Card className="p-6">
             <div className="flex items-center justify-between mb-6">
