@@ -1,0 +1,128 @@
+[
+  {
+    "Id": 1,
+    "title": "User authentication fails on mobile browsers",
+    "type": "Bug",
+    "description": "Users are unable to authenticate when using Safari on iOS devices. The login form appears to freeze after submitting credentials.",
+    "priority": "High",
+    "status": "In Progress",
+    "reporter": "john.doe@company.com",
+    "assignee": "jane.smith@company.com",
+    "environment": "Production",
+    "dueDate": "2024-01-25",
+    "createdAt": "2024-01-15T09:30:00Z",
+    "updatedAt": "2024-01-18T14:20:00Z",
+    "projectId": 1,
+    "attachments": [
+      {
+        "id": 1,
+        "name": "mobile-auth-error.png",
+        "url": "/attachments/mobile-auth-error.png",
+        "type": "image/png",
+        "size": 245760
+      }
+    ],
+    "tags": ["authentication", "mobile", "safari"]
+  },
+  {
+    "Id": 2,
+    "title": "Implement dark theme toggle",
+    "type": "Feature Request",
+    "description": "Add a dark theme option to improve user experience during night time usage. Should persist user preference across sessions.",
+    "priority": "Medium",
+    "status": "To Do",
+    "reporter": "alice.johnson@company.com",
+    "assignee": "bob.wilson@company.com",
+    "environment": "Development",
+    "dueDate": "2024-02-10",
+    "createdAt": "2024-01-12T11:00:00Z",
+    "updatedAt": "2024-01-12T11:00:00Z",
+    "projectId": 2,
+    "attachments": [],
+    "tags": ["ui", "theme", "accessibility"]
+  },
+  {
+    "Id": 3,
+    "title": "Optimize database query performance",
+    "type": "Improvement",
+    "description": "Current user dashboard loads slowly due to inefficient database queries. Need to add proper indexing and optimize JOIN operations.",
+    "priority": "High",
+    "status": "In Review",
+    "reporter": "charlie.brown@company.com",
+    "assignee": "diana.prince@company.com",
+    "environment": "Production",
+    "dueDate": "2024-01-30",
+    "createdAt": "2024-01-10T15:45:00Z",
+    "updatedAt": "2024-01-20T10:15:00Z",
+    "projectId": 1,
+    "attachments": [
+      {
+        "id": 2,
+        "name": "performance-analysis.pdf",
+        "url": "/attachments/performance-analysis.pdf",
+        "type": "application/pdf",
+        "size": 1024000
+      }
+    ],
+    "tags": ["performance", "database", "optimization"]
+  },
+  {
+    "Id": 4,
+    "title": "Update user profile validation",
+    "type": "Task",
+    "description": "Enhance client-side validation for user profile forms to provide better user feedback before form submission.",
+    "priority": "Low",
+    "status": "Done",
+    "reporter": "eve.davis@company.com",
+    "assignee": "frank.miller@company.com",
+    "environment": "Staging",
+    "dueDate": "2024-01-20",
+    "createdAt": "2024-01-08T13:20:00Z",
+    "updatedAt": "2024-01-19T16:30:00Z",
+    "projectId": 3,
+    "attachments": [],
+    "tags": ["validation", "user-profile", "frontend"]
+  },
+  {
+    "Id": 5,
+    "title": "API endpoint returns 500 error",
+    "type": "Bug",
+    "description": "The /api/reports/monthly endpoint consistently returns HTTP 500 errors when requesting data for accounts with large datasets.",
+    "priority": "Highest",
+    "status": "To Do",
+    "reporter": "grace.lee@company.com",
+    "assignee": "henry.garcia@company.com",
+    "environment": "Production",
+    "dueDate": "2024-01-22",
+    "createdAt": "2024-01-18T08:15:00Z",
+    "updatedAt": "2024-01-18T08:15:00Z",
+    "projectId": 2,
+    "attachments": [
+      {
+        "id": 3,
+        "name": "error-logs.txt",
+        "url": "/attachments/error-logs.txt",
+        "type": "text/plain",
+        "size": 15360
+      }
+    ],
+    "tags": ["api", "error", "reports"]
+  },
+  {
+    "Id": 6,
+    "title": "Add export functionality to reports",
+    "type": "Feature Request",
+    "description": "Users should be able to export reports in PDF and Excel formats. Include options for custom date ranges and filtering.",
+    "priority": "Medium",
+    "status": "In Progress",
+    "reporter": "iris.clark@company.com",
+    "assignee": "jack.taylor@company.com",
+    "environment": "Development",
+    "dueDate": "2024-02-15",
+    "createdAt": "2024-01-14T14:30:00Z",
+    "updatedAt": "2024-01-17T09:45:00Z",
+    "projectId": 1,
+    "attachments": [],
+    "tags": ["export", "reports", "pdf", "excel"]
+  }
+]

@@ -1,0 +1,162 @@
+[
+  {
+    "Id": 1,
+    "name": "Website Redesign",
+    "clientId": 1,
+    "description": "Complete redesign of the company website with modern UI/UX, responsive design, and improved user experience. The project includes user research, wireframing, design mockups, and development.",
+    "status": "In Progress",
+    "deadline": "2024-03-15",
+    "deliverables": "Wireframes, UI mockups, responsive website, SEO optimization, content migration, testing documentation",
+    "createdAt": "2024-01-16T11:00:00.000Z",
+    "milestones": [
+      {
+        "Id": 1,
+        "projectId": 1,
+        "title": "User Research & Analysis",
+        "description": "Conduct user interviews, surveys, and competitive analysis to inform design decisions",
+        "dueDate": "2024-02-01",
+        "isCompleted": true,
+        "completedDate": "2024-01-30T14:30:00.000Z",
+        "createdAt": "2024-01-16T11:00:00.000Z"
+      },
+      {
+        "Id": 2,
+        "projectId": 1,
+        "title": "Wireframes & Prototypes",
+        "description": "Create detailed wireframes and interactive prototypes for key user flows",
+        "dueDate": "2024-02-15",
+        "isCompleted": true,
+        "completedDate": "2024-02-14T16:45:00.000Z",
+        "createdAt": "2024-01-16T11:00:00.000Z"
+      },
+      {
+        "Id": 3,
+        "projectId": 1,
+        "title": "Visual Design Mockups",
+        "description": "Develop high-fidelity visual designs with branding and UI components",
+        "dueDate": "2024-03-01",
+        "isCompleted": false,
+        "completedDate": null,
+        "createdAt": "2024-01-16T11:00:00.000Z"
+      }
+    ]
+  },
+  {
+    "Id": 2,
+    "name": "Mobile App Development",
+    "clientId": 2,
+    "description": "Development of a cross-platform mobile application for iOS and Android. Features include user authentication, real-time notifications, data synchronization, and offline capabilities.",
+    "status": "Planning",
+    "deadline": "2024-05-20",
+    "deliverables": "Technical requirements, app architecture, iOS app, Android app, API documentation, user manual",
+    "createdAt": "2024-01-22T10:30:00.000Z",
+    "milestones": [
+      {
+        "Id": 4,
+        "projectId": 2,
+        "title": "Technical Requirements Document",
+        "description": "Define detailed technical specifications and system architecture",
+        "dueDate": "2024-02-15",
+        "isCompleted": false,
+        "completedDate": null,
+        "createdAt": "2024-01-22T10:30:00.000Z"
+      },
+      {
+        "Id": 5,
+        "projectId": 2,
+        "title": "UI/UX Design Phase",
+        "description": "Complete app design including user flows, wireframes, and visual mockups",
+        "dueDate": "2024-03-15",
+        "isCompleted": false,
+        "completedDate": null,
+        "createdAt": "2024-01-22T10:30:00.000Z"
+      }
+    ]
+  },
+  {
+    "Id": 3,
+    "name": "Brand Identity Package",
+    "clientId": 3,
+    "description": "Complete brand identity design including logo, color palette, typography, business cards, letterheads, and brand guidelines. The package will establish a cohesive visual identity across all touchpoints.",
+    "status": "Completed",
+    "deadline": "2024-02-28",
+    "deliverables": "Logo variations, brand guidelines, business card design, letterhead template, brand assets package",
+    "createdAt": "2024-02-02T13:15:00.000Z",
+    "milestones": [
+      {
+        "Id": 6,
+        "projectId": 3,
+        "title": "Logo Design & Variations",
+        "description": "Create primary logo and various format adaptations",
+        "dueDate": "2024-02-10",
+        "isCompleted": true,
+        "completedDate": "2024-02-09T11:20:00.000Z",
+        "createdAt": "2024-02-02T13:15:00.000Z"
+      },
+      {
+        "Id": 7,
+        "projectId": 3,
+        "title": "Brand Guidelines Document",
+        "description": "Comprehensive brand guidelines with usage rules and examples",
+        "dueDate": "2024-02-25",
+        "isCompleted": true,
+        "completedDate": "2024-02-24T15:30:00.000Z",
+        "createdAt": "2024-02-02T13:15:00.000Z"
+      }
+    ]
+  },
+  {
+    "Id": 4,
+    "name": "E-commerce Platform",
+    "clientId": 1,
+    "description": "Custom e-commerce solution with product catalog, shopping cart, payment integration, inventory management, and admin dashboard. Built with scalability and performance in mind.",
+    "status": "On Hold",
+    "deadline": "2024-06-30",
+    "deliverables": "Database design, frontend application, admin dashboard, payment gateway integration, inventory system, user documentation",
+    "createdAt": "2024-02-05T15:45:00.000Z",
+    "milestones": [
+      {
+        "Id": 8,
+        "projectId": 4,
+        "title": "Database Schema Design",
+        "description": "Design and implement the complete database structure",
+        "dueDate": "2024-03-15",
+        "isCompleted": false,
+        "completedDate": null,
+        "createdAt": "2024-02-05T15:45:00.000Z"
+      }
+    ]
+  },
+  {
+    "Id": 5,
+    "name": "Data Analytics Dashboard",
+    "clientId": 4,
+    "description": "Interactive dashboard for visualizing business metrics and KPIs. Features real-time data updates, customizable charts, export functionality, and role-based access control.",
+    "status": "In Progress",
+    "deadline": "2024-04-10",
+    "deliverables": "Dashboard mockups, data visualization components, reporting system, user access controls, API integration",
+    "createdAt": "2024-02-12T09:30:00.000Z",
+    "milestones": [
+      {
+        "Id": 9,
+        "projectId": 5,
+        "title": "Data Source Integration",
+        "description": "Connect and configure all required data sources and APIs",
+        "dueDate": "2024-03-01",
+        "isCompleted": true,
+        "completedDate": "2024-02-28T10:15:00.000Z",
+        "createdAt": "2024-02-12T09:30:00.000Z"
+      },
+      {
+        "Id": 10,
+        "projectId": 5,
+        "title": "Core Dashboard Components",
+        "description": "Develop primary dashboard widgets and visualization components",
+        "dueDate": "2024-03-25",
+        "isCompleted": false,
+        "completedDate": null,
+        "createdAt": "2024-02-12T09:30:00.000Z"
+      }
+    ]
+  }
+]

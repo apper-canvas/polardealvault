@@ -1,0 +1,92 @@
+[
+  {
+    "Id": 1,
+    "projectId": 1,
+    "taskId": 1,
+    "description": "Frontend development - Homepage layout and responsive design implementation",
+    "date": "2024-02-15",
+    "duration": 6.5,
+    "createdAt": "2024-02-15T10:00:00.000Z"
+  },
+  {
+    "Id": 2,
+    "projectId": 2,
+    "taskId": 3,
+    "description": "API integration for user authentication and data synchronization",
+    "date": "2024-02-15",
+    "duration": 4.0,
+    "createdAt": "2024-02-15T14:30:00.000Z"
+  },
+  {
+    "Id": 3,
+    "projectId": 1,
+    "taskId": 1,
+    "description": "Bug fixes and mobile optimization for responsive design",
+    "date": "2024-02-14",
+    "duration": 3.5,
+    "createdAt": "2024-02-14T16:15:00.000Z"
+  },
+  {
+    "Id": 4,
+    "projectId": 3,
+    "taskId": 5,
+    "description": "Logo design iterations and brand color palette refinement",
+    "date": "2024-02-14",
+    "duration": 5.0,
+    "createdAt": "2024-02-14T09:00:00.000Z"
+  },
+  {
+    "Id": 5,
+    "projectId": 2,
+    "taskId": 3,
+    "description": "Database schema design and migration scripts",
+    "date": "2024-02-13",
+    "duration": 7.0,
+    "createdAt": "2024-02-13T11:30:00.000Z"
+  },
+  {
+    "Id": 6,
+    "projectId": 1,
+    "taskId": 2,
+    "description": "Testing automation setup and deployment pipeline configuration",
+    "date": "2024-02-13",
+    "duration": 2.5,
+    "createdAt": "2024-02-13T17:45:00.000Z"
+  },
+  {
+    "Id": 7,
+    "projectId": 4,
+    "taskId": null,
+    "description": "Market research and competitor analysis documentation",
+    "date": "2024-02-12",
+    "duration": 4.5,
+    "createdAt": "2024-02-12T13:20:00.000Z"
+  },
+  {
+    "Id": 8,
+    "projectId": 3,
+    "taskId": 5,
+    "description": "User interface mockups and prototyping in Figma",
+    "date": "2024-02-12",
+    "duration": 3.0,
+    "createdAt": "2024-02-12T15:45:00.000Z"
+  },
+  {
+    "Id": 9,
+    "projectId": 2,
+    "taskId": 4,
+    "description": "Performance optimization and code refactoring",
+    "date": "2024-02-11",
+    "duration": 5.5,
+    "createdAt": "2024-02-11T10:15:00.000Z"
+  },
+  {
+    "Id": 10,
+    "projectId": 1,
+    "taskId": 1,
+    "description": "Client feedback implementation and design adjustments",
+    "date": "2024-02-11",
+    "duration": 2.0,
+    "createdAt": "2024-02-11T16:30:00.000Z"
+  }
+]

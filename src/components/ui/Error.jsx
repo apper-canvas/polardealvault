@@ -1,19 +1,24 @@
-import Button from "@/components/atoms/Button";
+import React from "react";
 import ApperIcon from "@/components/ApperIcon";
+import Button from "@/components/atoms/Button";
 
-const Error = ({ message, onRetry }) => {
+const Error = ({ 
+  message = "Something went wrong. Please try again.", 
+  onRetry,
+  title = "Error"
+}) => {
   return (
-    <div className="flex flex-col items-center justify-center py-12 text-center">
-      <div className="w-16 h-16 bg-gradient-to-br from-red-100 to-rose-100 rounded-full flex items-center justify-center mb-4">
-        <ApperIcon name="AlertCircle" className="h-8 w-8 text-red-600" />
+<div className="bg-white rounded-lg border p-8 text-center" style={{borderColor: '#E8E8E8'}}>
+      <div className="flex justify-center mb-4">
+<div className="p-3 rounded-full" style={{backgroundColor: 'rgba(192, 57, 43, 0.1)'}}>
+          <ApperIcon name="AlertCircle" size={24} style={{color: '#C0392B'}} />
+        </div>
       </div>
-      <h3 className="text-lg font-semibold text-gray-900 mb-2">Something went wrong</h3>
-      <p className="text-gray-600 mb-6 max-w-md">
-        {message || "We encountered an error while loading your data. Please try again."}
-      </p>
+      <h3 className="text-lg font-semibold text-gray-900 mb-2">{title}</h3>
+      <p className="text-gray-600 mb-6">{message}</p>
       {onRetry && (
-        <Button onClick={onRetry} className="flex items-center gap-2">
-          <ApperIcon name="RefreshCw" className="h-4 w-4" />
+        <Button onClick={onRetry} variant="primary">
+          <ApperIcon name="RefreshCw" size={16} className="mr-2" />
           Try Again
         </Button>
       )}

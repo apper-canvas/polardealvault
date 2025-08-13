@@ -1,0 +1,52 @@
+[
+  {
+    "Id": 1,
+    "issueId": 1,
+    "author": "jane.smith@company.com",
+    "content": "I've reproduced this issue on Safari 15.4. It seems to be related to third-party cookies being blocked. @john.doe@company.com can you test with cookies enabled?",
+    "createdAt": "2024-01-16T10:15:00Z",
+    "updatedAt": "2024-01-16T10:15:00Z",
+    "parentId": null,
+    "mentions": ["john.doe@company.com"]
+  },
+  {
+    "Id": 2,
+    "issueId": 1,
+    "author": "john.doe@company.com",
+    "content": "Good catch! I confirmed that enabling cookies resolves the issue. We should add better error messaging for users with strict cookie settings.",
+    "createdAt": "2024-01-16T14:30:00Z",
+    "updatedAt": "2024-01-16T14:30:00Z",
+    "parentId": 1,
+    "mentions": []
+  },
+  {
+    "Id": 3,
+    "issueId": 3,
+    "author": "diana.prince@company.com",
+    "content": "I've completed the database optimization analysis. The main bottleneck is the user_activities table join. Proposing to add composite index on (user_id, created_at).",
+    "createdAt": "2024-01-20T09:30:00Z",
+    "updatedAt": "2024-01-20T09:30:00Z",
+    "parentId": null,
+    "mentions": []
+  },
+  {
+    "Id": 4,
+    "issueId": 3,
+    "author": "charlie.brown@company.com",
+    "content": "@diana.prince@company.com Excellent analysis! Please proceed with the index creation. Also consider partitioning the table by month if the dataset continues to grow.",
+    "createdAt": "2024-01-20T11:45:00Z",
+    "updatedAt": "2024-01-20T11:45:00Z",
+    "parentId": 3,
+    "mentions": ["diana.prince@company.com"]
+  },
+  {
+    "Id": 5,
+    "issueId": 5,
+    "author": "henry.garcia@company.com",
+    "content": "Investigating the 500 errors. Initial analysis shows memory exhaustion when processing large datasets. Working on implementing pagination for the reports endpoint.",
+    "createdAt": "2024-01-18T16:20:00Z",
+    "updatedAt": "2024-01-18T16:20:00Z",
+    "parentId": null,
+    "mentions": []
+  }
+]

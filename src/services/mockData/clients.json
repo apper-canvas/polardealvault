@@ -1,0 +1,50 @@
+[
+{
+    "Id": 1,
+    "name": "Sarah Johnson",
+    "company": "TechStart Inc.",
+    "email": "sarah@techstart.com",
+    "phone": "(555) 123-4567",
+    "website": "https://www.techstart.com",
+    "address": "123 Innovation Drive, San Francisco, CA 94107",
+    "industry": "Technology",
+    "status": "Active",
+    "createdAt": "2024-01-15T10:30:00.000Z"
+  },
+{
+    "Id": 2,
+    "name": "Michael Chen",
+    "company": "Global Solutions",
+    "email": "michael@globalsolutions.com",
+    "phone": "(555) 234-5678",
+    "website": "https://www.globalsolutions.com",
+    "address": "456 Business Plaza, New York, NY 10001",
+    "industry": "Consulting",
+    "status": "Prospect",
+    "createdAt": "2024-01-20T14:15:00.000Z"
+  },
+{
+    "Id": 3,
+    "name": "Emily Rodriguez",
+    "company": "Creative Agency",
+    "email": "emily@creativeagency.com",
+    "phone": "(555) 345-6789",
+    "website": "https://www.creativeagency.com",
+    "address": "789 Design Street, Los Angeles, CA 90210",
+    "industry": "Marketing",
+    "status": "Active",
+    "createdAt": "2024-02-01T09:45:00.000Z"
+  },
+{
+    "Id": 4,
+    "name": "David Thompson",
+    "company": "Innovation Labs",
+    "email": "david@innovationlabs.com",
+    "phone": "(555) 456-7890",
+    "website": "https://www.innovationlabs.com",
+    "address": "321 Research Blvd, Austin, TX 78701",
+    "industry": "Research",
+    "status": "Inactive",
+    "createdAt": "2024-02-10T16:20:00.000Z"
+  }
+]

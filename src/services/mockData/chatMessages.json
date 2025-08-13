@@ -1,0 +1,137 @@
+[
+  {
+    "Id": 1,
+    "content": "Hey everyone! Welcome to the team chat. This is where we can have quick discussions and stay connected.",
+    "authorId": 1,
+    "projectId": null,
+    "channelType": "team",
+    "createdAt": "2024-01-15T09:00:00.000Z",
+    "updatedAt": "2024-01-15T09:00:00.000Z"
+  },
+  {
+    "Id": 2,
+    "content": "Thanks for setting this up! This will make communication much easier.",
+    "authorId": 2,
+    "projectId": null,
+    "channelType": "team",
+    "createdAt": "2024-01-15T09:15:00.000Z",
+    "updatedAt": "2024-01-15T09:15:00.000Z"
+  },
+  {
+    "Id": 3,
+    "content": "Agreed! Looking forward to collaborating here.",
+    "authorId": 3,
+    "projectId": null,
+    "channelType": "team",
+    "createdAt": "2024-01-15T09:30:00.000Z",
+    "updatedAt": "2024-01-15T09:30:00.000Z"
+  },
+  {
+    "Id": 4,
+    "content": "Quick question - when is our next team meeting scheduled?",
+    "authorId": 4,
+    "projectId": null,
+    "channelType": "team",
+    "createdAt": "2024-01-15T14:20:00.000Z",
+    "updatedAt": "2024-01-15T14:20:00.000Z"
+  },
+  {
+    "Id": 5,
+    "content": "It's scheduled for Friday at 2 PM. I'll send out calendar invites later today.",
+    "authorId": 1,
+    "projectId": null,
+    "channelType": "team",
+    "createdAt": "2024-01-15T14:25:00.000Z",
+    "updatedAt": "2024-01-15T14:25:00.000Z"
+  },
+  {
+    "Id": 6,
+    "content": "Great! Just started working on the E-commerce platform redesign. The mockups look fantastic!",
+    "authorId": 2,
+    "projectId": 1,
+    "channelType": "project",
+    "createdAt": "2024-01-16T10:00:00.000Z",
+    "updatedAt": "2024-01-16T10:00:00.000Z"
+  },
+  {
+    "Id": 7,
+    "content": "I've been reviewing the user flow diagrams. Should we schedule a design review session?",
+    "authorId": 3,
+    "projectId": 1,
+    "channelType": "project",
+    "createdAt": "2024-01-16T10:30:00.000Z",
+    "updatedAt": "2024-01-16T10:30:00.000Z"
+  },
+  {
+    "Id": 8,
+    "content": "Yes, let's do that. How about tomorrow at 3 PM? We can go through the designs together.",
+    "authorId": 1,
+    "projectId": 1,
+    "channelType": "project",
+    "createdAt": "2024-01-16T11:00:00.000Z",
+    "updatedAt": "2024-01-16T11:00:00.000Z"
+  },
+  {
+    "Id": 9,
+    "content": "Perfect! I'll prepare the presentation and share the latest prototypes.",
+    "authorId": 2,
+    "projectId": 1,
+    "channelType": "project",
+    "createdAt": "2024-01-16T11:15:00.000Z",
+    "updatedAt": "2024-01-16T11:15:00.000Z"
+  },
+  {
+    "Id": 10,
+    "content": "The mobile app development is progressing well. We're ahead of schedule on the authentication module.",
+    "authorId": 4,
+    "projectId": 2,
+    "channelType": "project",
+    "createdAt": "2024-01-16T15:00:00.000Z",
+    "updatedAt": "2024-01-16T15:00:00.000Z"
+  },
+  {
+    "Id": 11,
+    "content": "That's excellent news! Any challenges with the API integration?",
+    "authorId": 1,
+    "projectId": 2,
+    "channelType": "project",
+    "createdAt": "2024-01-16T15:30:00.000Z",
+    "updatedAt": "2024-01-16T15:30:00.000Z"
+  },
+  {
+    "Id": 12,
+    "content": "Minor issues with rate limiting, but we've implemented a proper retry mechanism. Should be resolved by end of week.",
+    "authorId": 4,
+    "projectId": 2,
+    "channelType": "project",
+    "createdAt": "2024-01-16T15:45:00.000Z",
+    "updatedAt": "2024-01-16T15:45:00.000Z"
+  },
+  {
+    "Id": 13,
+    "content": "Don't forget about the client presentation next week. Let's make sure all demos are ready!",
+    "authorId": 5,
+    "projectId": null,
+    "channelType": "team",
+    "createdAt": "2024-01-17T09:00:00.000Z",
+    "updatedAt": "2024-01-17T09:00:00.000Z"
+  },
+  {
+    "Id": 14,
+    "content": "I'll have the marketing website updates ready for review by tomorrow morning.",
+    "authorId": 3,
+    "projectId": 3,
+    "channelType": "project",
+    "createdAt": "2024-01-17T13:00:00.000Z",
+    "updatedAt": "2024-01-17T13:00:00.000Z"
+  },
+  {
+    "Id": 15,
+    "content": "Sounds good! The SEO optimizations are looking promising based on our initial tests.",
+    "authorId": 2,
+    "projectId": 3,
+    "channelType": "project",
+    "createdAt": "2024-01-17T13:30:00.000Z",
+    "updatedAt": "2024-01-17T13:30:00.000Z"
+  }
+]

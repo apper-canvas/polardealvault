@@ -1,0 +1,92 @@
+[
+  {
+    "Id": 1,
+    "name": "Design Phase Tasks",
+    "description": "All tasks related to the design phase of the project",
+    "milestoneId": 1,
+    "projectId": 1,
+    "tasks": [1, 2],
+    "createdAt": "2024-01-16T11:30:00.000Z"
+  },
+  {
+    "Id": 2,
+    "name": "Development Setup",
+    "description": "Initial development environment and database setup tasks",
+    "milestoneId": 2,
+    "projectId": 1,
+    "tasks": [],
+    "createdAt": "2024-01-16T12:00:00.000Z"
+  },
+  {
+    "Id": 3,
+    "name": "UI Implementation",
+    "description": "User interface development tasks",
+    "milestoneId": 3,
+    "projectId": 1,
+    "tasks": [],
+    "createdAt": "2024-01-16T12:30:00.000Z"
+  },
+  {
+    "Id": 4,
+    "name": "Requirements Gathering",
+    "description": "Technical requirements and planning tasks",
+    "milestoneId": 4,
+    "projectId": 2,
+    "tasks": [3, 4],
+    "createdAt": "2024-01-22T11:00:00.000Z"
+  },
+  {
+    "Id": 5,
+    "name": "Design Documentation",
+    "description": "App design and user experience tasks",
+    "milestoneId": 5,
+    "projectId": 2,
+    "tasks": [],
+    "createdAt": "2024-01-22T11:30:00.000Z"
+  },
+  {
+    "Id": 6,
+    "name": "Brand Design",
+    "description": "Logo and visual identity creation",
+    "milestoneId": 6,
+    "projectId": 3,
+    "tasks": [5],
+    "createdAt": "2024-02-02T13:30:00.000Z"
+  },
+  {
+    "Id": 7,
+    "name": "Brand Guidelines",
+    "description": "Documentation and guidelines creation",
+    "milestoneId": 7,
+    "projectId": 3,
+    "tasks": [],
+    "createdAt": "2024-02-02T14:00:00.000Z"
+  },
+  {
+    "Id": 8,
+    "name": "Database Design",
+    "description": "E-commerce database structure and setup",
+    "milestoneId": 8,
+    "projectId": 4,
+    "tasks": [],
+    "createdAt": "2024-02-05T16:00:00.000Z"
+  },
+  {
+    "Id": 9,
+    "name": "Data Integration",
+    "description": "Connect external data sources",
+    "milestoneId": 9,
+    "projectId": 5,
+    "tasks": [],
+    "createdAt": "2024-02-12T10:00:00.000Z"
+  },
+  {
+    "Id": 10,
+    "name": "Dashboard Components",
+    "description": "Core dashboard widget development",
+    "milestoneId": 10,
+    "projectId": 5,
+    "tasks": [],
+    "createdAt": "2024-02-12T10:30:00.000Z"
+  }
+]

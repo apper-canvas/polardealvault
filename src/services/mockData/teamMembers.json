@@ -1,0 +1,175 @@
+[
+  {
+    "Id": 1,
+    "name": "Sarah Johnson",
+    "email": "sarah.johnson@company.com",
+    "role": "Senior Developer",
+    "department": "Engineering",
+    "status": "Active",
+    "avatar": "https://images.unsplash.com/photo-1494790108755-2616b612b47c?w=150&h=150&fit=crop&crop=face",
+    "phone": "+1 (555) 123-4567",
+    "location": "New York, NY",
+    "startDate": "2022-01-15",
+    "skills": ["React", "TypeScript", "Node.js", "Python"],
+    "currentWorkload": 85,
+    "maxCapacity": 40,
+    "currentProjects": [
+      {
+        "projectId": 1,
+        "projectName": "E-commerce Platform",
+        "hoursAllocated": 25,
+        "role": "Lead Developer"
+      },
+      {
+        "projectId": 2,
+        "projectName": "Mobile App Development",
+        "hoursAllocated": 15,
+        "role": "Backend Developer"
+      }
+    ],
+    "completedTasksThisMonth": 23,
+    "totalTasksThisMonth": 27,
+    "averageTaskCompletionTime": 2.5
+  },
+  {
+    "Id": 2,
+    "name": "Michael Chen",
+    "email": "michael.chen@company.com",
+    "role": "UX Designer",
+    "department": "Design",
+    "status": "Active",
+    "avatar": "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face",
+    "phone": "+1 (555) 234-5678",
+    "location": "San Francisco, CA",
+    "startDate": "2021-09-20",
+    "skills": ["Figma", "Adobe XD", "User Research", "Prototyping"],
+    "currentWorkload": 70,
+    "maxCapacity": 40,
+    "currentProjects": [
+      {
+        "projectId": 3,
+        "projectName": "Corporate Website Redesign",
+        "hoursAllocated": 20,
+        "role": "Lead Designer"
+      },
+      {
+        "projectId": 1,
+        "projectName": "E-commerce Platform",
+        "hoursAllocated": 8,
+        "role": "UX Consultant"
+      }
+    ],
+    "completedTasksThisMonth": 18,
+    "totalTasksThisMonth": 20,
+    "averageTaskCompletionTime": 3.2
+  },
+  {
+    "Id": 3,
+    "name": "Emily Rodriguez",
+    "email": "emily.rodriguez@company.com",
+    "role": "Project Manager",
+    "department": "Operations",
+    "status": "Active",
+    "avatar": "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop&crop=face",
+    "phone": "+1 (555) 345-6789",
+    "location": "Austin, TX",
+    "startDate": "2020-03-10",
+    "skills": ["Agile", "Scrum", "Risk Management", "Team Leadership"],
+    "currentWorkload": 95,
+    "maxCapacity": 40,
+    "currentProjects": [
+      {
+        "projectId": 2,
+        "projectName": "Mobile App Development",
+        "hoursAllocated": 25,
+        "role": "Project Manager"
+      },
+      {
+        "projectId": 4,
+        "projectName": "Data Analytics Dashboard",
+        "hoursAllocated": 15,
+        "role": "Project Manager"
+      }
+    ],
+    "completedTasksThisMonth": 31,
+    "totalTasksThisMonth": 33,
+    "averageTaskCompletionTime": 1.8
+  },
+  {
+    "Id": 4,
+    "name": "David Kim",
+    "email": "david.kim@company.com",
+    "role": "DevOps Engineer",
+    "department": "Engineering",
+    "status": "Away",
+    "avatar": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face",
+    "phone": "+1 (555) 456-7890",
+    "location": "Seattle, WA",
+    "startDate": "2021-11-05",
+    "skills": ["AWS", "Docker", "Kubernetes", "CI/CD"],
+    "currentWorkload": 45,
+    "maxCapacity": 40,
+    "currentProjects": [
+      {
+        "projectId": 1,
+        "projectName": "E-commerce Platform",
+        "hoursAllocated": 18,
+        "role": "DevOps Engineer"
+      }
+    ],
+    "completedTasksThisMonth": 12,
+    "totalTasksThisMonth": 15,
+    "averageTaskCompletionTime": 4.1
+  },
+  {
+    "Id": 5,
+    "name": "Jessica Taylor",
+    "email": "jessica.taylor@company.com",
+    "role": "Marketing Specialist",
+    "department": "Marketing",
+    "status": "Active",
+    "avatar": "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=150&h=150&fit=crop&crop=face",
+    "phone": "+1 (555) 567-8901",
+    "location": "Chicago, IL",
+    "startDate": "2022-06-01",
+    "skills": ["Content Marketing", "SEO", "Social Media", "Analytics"],
+    "currentWorkload": 60,
+    "maxCapacity": 40,
+    "currentProjects": [
+      {
+        "projectId": 3,
+        "projectName": "Corporate Website Redesign",
+        "hoursAllocated": 12,
+        "role": "Content Strategist"
+      },
+      {
+        "projectId": 5,
+        "projectName": "Brand Refresh Campaign",
+        "hoursAllocated": 12,
+        "role": "Marketing Lead"
+      }
+    ],
+    "completedTasksThisMonth": 16,
+    "totalTasksThisMonth": 19,
+    "averageTaskCompletionTime": 2.8
+  },
+  {
+    "Id": 6,
+    "name": "Alex Thompson",
+    "email": "alex.thompson@company.com",
+    "role": "QA Engineer",
+    "department": "Engineering",
+    "status": "Inactive",
+    "avatar": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&h=150&fit=crop&crop=face",
+    "phone": "+1 (555) 678-9012",
+    "location": "Boston, MA",
+    "startDate": "2021-04-15",
+    "skills": ["Test Automation", "Selenium", "API Testing", "Performance Testing"],
+    "currentWorkload": 0,
+    "maxCapacity": 40,
+    "currentProjects": [],
+    "completedTasksThisMonth": 0,
+    "totalTasksThisMonth": 0,
+    "averageTaskCompletionTime": 0
+  }
+]

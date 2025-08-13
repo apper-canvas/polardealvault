@@ -1,22 +1,27 @@
-import Button from "@/components/atoms/Button";
+import React from "react";
 import ApperIcon from "@/components/ApperIcon";
+import Button from "@/components/atoms/Button";
 
-const Empty = ({ title, description, actionLabel, onAction, icon = "Package" }) => {
+const Empty = ({ 
+  icon = "Inbox",
+  title = "No data found",
+  description = "Get started by creating your first item.",
+  actionLabel,
+  onAction
+}) => {
   return (
-    <div className="flex flex-col items-center justify-center py-12 text-center">
-      <div className="w-16 h-16 bg-gradient-to-br from-gray-100 to-gray-200 rounded-full flex items-center justify-center mb-4">
-        <ApperIcon name={icon} className="h-8 w-8 text-gray-400" />
+<div className="bg-white rounded-lg border p-12 text-center" style={{borderColor: '#E8E8E8'}}>
+      <div className="flex justify-center mb-6">
+<div className="p-4 rounded-full" style={{backgroundColor: 'rgba(158, 158, 158, 0.1)'}}>
+          <ApperIcon name={icon} size={32} style={{color: '#9E9E9E'}} />
+        </div>
       </div>
-      <h3 className="text-lg font-semibold text-gray-900 mb-2">
-        {title || "No items found"}
-      </h3>
-      <p className="text-gray-600 mb-6 max-w-md">
-        {description || "Get started by adding your first item."}
-      </p>
-      {onAction && (
-        <Button onClick={onAction} className="flex items-center gap-2">
-          <ApperIcon name="Plus" className="h-4 w-4" />
-          {actionLabel || "Add Item"}
+      <h3 className="text-xl font-semibold text-gray-900 mb-2">{title}</h3>
+      <p className="text-gray-600 mb-8 max-w-sm mx-auto">{description}</p>
+      {actionLabel && onAction && (
+        <Button onClick={onAction} variant="primary">
+          <ApperIcon name="Plus" size={16} className="mr-2" />
+          {actionLabel}
         </Button>
       )}
     </div>
