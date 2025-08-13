@@ -1,10 +1,10 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState, useContext } from "react";
 import { toast } from "react-toastify";
+import { AuthContext } from "../../App";
 import ApperIcon from "@/components/ApperIcon";
 import Input from "@/components/atoms/Input";
 import Button from "@/components/atoms/Button";
 import Modal from "@/components/atoms/Modal";
-
 const Header = ({ onMenuClick, sidebarCollapsed, onToggleCollapse }) => {
   const [searchQuery, setSearchQuery] = useState("");
   const [searchResults, setSearchResults] = useState([]);
@@ -98,9 +98,12 @@ const Header = ({ onMenuClick, sidebarCollapsed, onToggleCollapse }) => {
     setShowProfileModal(false);
   };
 
-  const handleLogout = () => {
+const { logout } = useContext(AuthContext);
+  
+  const handleLogout = async () => {
     setShowProfileMenu(false);
     toast.info("Logging out...");
+    await logout();
   };
 
   return (

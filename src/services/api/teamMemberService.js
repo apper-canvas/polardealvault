@@ -1,125 +1,270 @@
-import mockTeamMembers from '@/services/mockData/teamMembers.json';
-
-// In-memory storage (simulates a database)
-let teamMembers = [...mockTeamMembers];
-let nextId = Math.max(...teamMembers.map(member => member.Id)) + 1;
-
-// Helper function to create a deep copy
-const deepCopy = (obj) => JSON.parse(JSON.stringify(obj));
-
-// Get all team members
-export const getAll = () => {
-  return deepCopy(teamMembers);
-};
-
-// Get team member by ID
-export const getById = (id) => {
-  const memberId = parseInt(id);
-  if (isNaN(memberId)) {
-    throw new Error('Invalid team member ID');
+class TeamMemberService {
+  constructor() {
+    // Initialize ApperClient with Project ID and Public Key
+    const { ApperClient } = window.ApperSDK;
+    this.apperClient = new ApperClient({
+      apperProjectId: import.meta.env.VITE_APPER_PROJECT_ID,
+      apperPublicKey: import.meta.env.VITE_APPER_PUBLIC_KEY
+    });
+    this.tableName = 'team_member_c';
   }
-  
-  const member = teamMembers.find(member => member.Id === memberId);
-  return member ? deepCopy(member) : null;
-};
 
-// Create new team member
-export const create = (memberData) => {
-  const newMember = {
-    ...memberData,
-    Id: nextId++,
-    currentWorkload: 0,
-    currentProjects: [],
-    completedTasksThisMonth: 0,
-    totalTasksThisMonth: 0,
-    averageTaskCompletionTime: 0
-  };
-  
-  teamMembers.push(newMember);
-  return deepCopy(newMember);
-};
-
-// Update team member
-export const update = (id, memberData) => {
-  const memberId = parseInt(id);
-  if (isNaN(memberId)) {
-    throw new Error('Invalid team member ID');
+  async getAll() {
+    try {
+      const params = {
+        fields: [
+          { field: { Name: "Name" } },
+          { field: { Name: "Tags" } },
+          { field: { Name: "email_c" } },
+          { field: { Name: "role_c" } },
+          { field: { Name: "department_c" } },
+          { field: { Name: "status_c" } },
+          { field: { Name: "avatar_c" } },
+          { field: { Name: "phone_c" } },
+          { field: { Name: "location_c" } },
+          { field: { Name: "start_date_c" } },
+          { field: { Name: "current_workload_c" } },
+          { field: { Name: "max_capacity_c" } },
+          { field: { Name: "completed_tasks_this_month_c" } },
+          { field: { Name: "total_tasks_this_month_c" } },
+          { field: { Name: "average_task_completion_time_c" } }
+        ],
+        orderBy: [
+          { fieldName: "Name", sorttype: "ASC" }
+        ],
+        pagingInfo: { limit: 100, offset: 0 }
+      };
+      
+      const response = await this.apperClient.fetchRecords(this.tableName, params);
+      
+      if (!response.success) {
+        console.error(response.message);
+        return [];
+      }
+      
+      return response.data || [];
+    } catch (error) {
+      console.error("Error fetching team members:", error?.response?.data?.message || error.message);
+      return [];
+    }
   }
-  
-  const index = teamMembers.findIndex(member => member.Id === memberId);
-  if (index === -1) {
-    throw new Error('Team member not found');
+
+  async getById(id) {
+    const memberId = parseInt(id);
+    if (isNaN(memberId)) {
+      throw new Error('Invalid team member ID');
+    }
+    
+    try {
+      const params = {
+        fields: [
+          { field: { Name: "Name" } },
+          { field: { Name: "Tags" } },
+          { field: { Name: "email_c" } },
+          { field: { Name: "role_c" } },
+          { field: { Name: "department_c" } },
+          { field: { Name: "status_c" } },
+          { field: { Name: "avatar_c" } },
+          { field: { Name: "phone_c" } },
+          { field: { Name: "location_c" } },
+          { field: { Name: "start_date_c" } },
+          { field: { Name: "current_workload_c" } },
+          { field: { Name: "max_capacity_c" } },
+          { field: { Name: "completed_tasks_this_month_c" } },
+          { field: { Name: "total_tasks_this_month_c" } },
+          { field: { Name: "average_task_completion_time_c" } }
+        ]
+      };
+      
+      const response = await this.apperClient.getRecordById(this.tableName, memberId, params);
+      
+      if (!response.success) {
+        console.error(response.message);
+        return null;
+      }
+      
+      return response.data;
+    } catch (error) {
+      console.error(`Error fetching team member with ID ${id}:`, error?.response?.data?.message || error.message);
+      return null;
+    }
   }
-  
-  teamMembers[index] = {
-    ...teamMembers[index],
-    ...memberData,
-    Id: memberId // Ensure ID cannot be changed
-  };
-  
-  return deepCopy(teamMembers[index]);
-};
 
-// Delete team member
-export const deleteById = (id) => {
-  const memberId = parseInt(id);
-  if (isNaN(memberId)) {
-    throw new Error('Invalid team member ID');
+  async create(memberData) {
+    try {
+      const params = {
+        records: [
+          {
+            Name: memberData.Name || memberData.name,
+            Tags: memberData.Tags,
+            email_c: memberData.email_c || memberData.email,
+            role_c: memberData.role_c || memberData.role,
+            department_c: memberData.department_c || memberData.department,
+            status_c: memberData.status_c || memberData.status || "Active",
+            avatar_c: memberData.avatar_c || memberData.avatar,
+            phone_c: memberData.phone_c || memberData.phone,
+            location_c: memberData.location_c || memberData.location,
+            start_date_c: memberData.start_date_c || memberData.startDate,
+            current_workload_c: memberData.current_workload_c || memberData.currentWorkload || 0,
+            max_capacity_c: memberData.max_capacity_c || memberData.maxCapacity || 40,
+            completed_tasks_this_month_c: 0,
+            total_tasks_this_month_c: 0,
+            average_task_completion_time_c: 0
+          }
+        ]
+      };
+      
+      const response = await this.apperClient.createRecord(this.tableName, params);
+      
+      if (!response.success) {
+        console.error(response.message);
+        return null;
+      }
+      
+      if (response.results) {
+        const successfulRecords = response.results.filter(result => result.success);
+        return successfulRecords.length > 0 ? successfulRecords[0].data : null;
+      }
+    } catch (error) {
+      console.error("Error creating team member:", error?.response?.data?.message || error.message);
+      return null;
+    }
   }
-  
-  const index = teamMembers.findIndex(member => member.Id === memberId);
-  if (index === -1) {
-    throw new Error('Team member not found');
+
+  async update(id, memberData) {
+    const memberId = parseInt(id);
+    if (isNaN(memberId)) {
+      throw new Error('Invalid team member ID');
+    }
+    
+    try {
+      const params = {
+        records: [
+          {
+            Id: memberId,
+            Name: memberData.Name || memberData.name,
+            Tags: memberData.Tags,
+            email_c: memberData.email_c || memberData.email,
+            role_c: memberData.role_c || memberData.role,
+            department_c: memberData.department_c || memberData.department,
+            status_c: memberData.status_c || memberData.status,
+            avatar_c: memberData.avatar_c || memberData.avatar,
+            phone_c: memberData.phone_c || memberData.phone,
+            location_c: memberData.location_c || memberData.location,
+            start_date_c: memberData.start_date_c || memberData.startDate,
+            current_workload_c: memberData.current_workload_c || memberData.currentWorkload,
+            max_capacity_c: memberData.max_capacity_c || memberData.maxCapacity,
+            completed_tasks_this_month_c: memberData.completed_tasks_this_month_c || memberData.completedTasksThisMonth,
+            total_tasks_this_month_c: memberData.total_tasks_this_month_c || memberData.totalTasksThisMonth,
+            average_task_completion_time_c: memberData.average_task_completion_time_c || memberData.averageTaskCompletionTime
+          }
+        ]
+      };
+      
+      const response = await this.apperClient.updateRecord(this.tableName, params);
+      
+      if (!response.success) {
+        console.error(response.message);
+        return null;
+      }
+      
+      if (response.results) {
+        const successfulRecords = response.results.filter(result => result.success);
+        return successfulRecords.length > 0 ? successfulRecords[0].data : null;
+      }
+    } catch (error) {
+      console.error("Error updating team member:", error?.response?.data?.message || error.message);
+      return null;
+    }
   }
-  
-  teamMembers.splice(index, 1);
-  return true;
-};
 
-// Get team members by status
-export const getByStatus = (status) => {
-  return deepCopy(teamMembers.filter(member => member.status === status));
-};
+  async delete(id) {
+    const memberId = parseInt(id);
+    if (isNaN(memberId)) {
+      throw new Error('Invalid team member ID');
+    }
+    
+    try {
+      const params = {
+        RecordIds: [memberId]
+      };
+      
+      const response = await this.apperClient.deleteRecord(this.tableName, params);
+      
+      if (!response.success) {
+        console.error(response.message);
+        return false;
+      }
+      
+      return response.results ? response.results.some(result => result.success) : false;
+    } catch (error) {
+      console.error("Error deleting team member:", error?.response?.data?.message || error.message);
+      return false;
+    }
+  }
 
-// Get team members by department
-export const getByDepartment = (department) => {
-  return deepCopy(teamMembers.filter(member => member.department === department));
-};
+  async getByStatus(status) {
+    try {
+      const params = {
+        fields: [
+          { field: { Name: "Name" } },
+          { field: { Name: "status_c" } },
+          { field: { Name: "role_c" } },
+          { field: { Name: "department_c" } }
+        ],
+        where: [
+          {
+            FieldName: "status_c",
+            Operator: "EqualTo",
+            Values: [status]
+          }
+        ]
+      };
+      
+      const response = await this.apperClient.fetchRecords(this.tableName, params);
+      return response.success ? response.data || [] : [];
+    } catch (error) {
+      console.error("Error fetching team members by status:", error?.response?.data?.message || error.message);
+      return [];
+    }
+  }
 
-// Search team members
-export const search = (query) => {
-  const searchTerm = query.toLowerCase();
-  return deepCopy(teamMembers.filter(member => 
-    member.name.toLowerCase().includes(searchTerm) ||
-    member.email.toLowerCase().includes(searchTerm) ||
-    member.role.toLowerCase().includes(searchTerm) ||
-    member.department.toLowerCase().includes(searchTerm)
-  ));
-};
+  async getByDepartment(department) {
+    try {
+      const params = {
+        fields: [
+          { field: { Name: "Name" } },
+          { field: { Name: "department_c" } },
+          { field: { Name: "role_c" } },
+          { field: { Name: "status_c" } }
+        ],
+        where: [
+          {
+            FieldName: "department_c",
+            Operator: "EqualTo",
+            Values: [department]
+          }
+        ]
+      };
+      
+      const response = await this.apperClient.fetchRecords(this.tableName, params);
+      return response.success ? response.data || [] : [];
+    } catch (error) {
+      console.error("Error fetching team members by department:", error?.response?.data?.message || error.message);
+      return [];
+    }
+  }
+}
 
-// Get workload statistics
-export const getWorkloadStats = () => {
-  const activeMembers = teamMembers.filter(member => member.status === 'Active');
-  const totalCapacity = activeMembers.reduce((sum, member) => sum + member.maxCapacity, 0);
-  const totalWorkload = activeMembers.reduce((sum, member) => sum + member.currentWorkload, 0);
-  
-  return {
-    totalMembers: teamMembers.length,
-    activeMembers: activeMembers.length,
-    averageWorkload: activeMembers.length > 0 ? Math.round(totalWorkload / activeMembers.length) : 0,
-    capacityUtilization: totalCapacity > 0 ? Math.round((totalWorkload / totalCapacity) * 100) : 0,
-    overloadedMembers: activeMembers.filter(member => member.currentWorkload > member.maxCapacity).length
-  };
-};
+const teamMemberService = new TeamMemberService();
 
-export default {
-  getAll,
-  getById,
-  create,
-  update,
-  delete: deleteById,
-  getByStatus,
-  getByDepartment,
-  search,
-  getWorkloadStats
-};
+// Export individual functions for compatibility
+export const getAll = () => teamMemberService.getAll();
+export const getById = (id) => teamMemberService.getById(id);
+export const create = (memberData) => teamMemberService.create(memberData);
+export const update = (id, memberData) => teamMemberService.update(id, memberData);
+export const deleteById = (id) => teamMemberService.delete(id);
+export const getByStatus = (status) => teamMemberService.getByStatus(status);
+export const getByDepartment = (department) => teamMemberService.getByDepartment(department);
+
+export default teamMemberService;

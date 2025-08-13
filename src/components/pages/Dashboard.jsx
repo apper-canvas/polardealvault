@@ -31,26 +31,31 @@ const [loading, setLoading] = useState(true);
       setLoading(true);
       setError("");
       
-      const [clients, projects, tasks] = await Promise.all([
+const [clients, projects, tasks] = await Promise.all([
         clientService.getAll(),
         projectService.getAll(),
         taskService.getAll()
       ]);
       
-      // Calculate metrics
-      const activeClients = clients.filter(client => client.status === "Active").length;
-      const activeProjects = projects.filter(project => 
-        project.status === "In Progress" || project.status === "Planning"
-      ).length;
+      // Calculate metrics with database field names
+      const activeClients = clients.filter(client => (client.status_c || client.status) === "Active").length;
+      const activeProjects = projects.filter(project => {
+        const status = project.status_c || project.status;
+        return status === "In Progress" || status === "Planning";
+      }).length;
       
       const today = new Date().toISOString().split('T')[0];
-      const tasksDueToday = tasks.filter(task => 
-        !task.completed && task.dueDate === today
-      ).length;
+      const tasksDueToday = tasks.filter(task => {
+        const completed = task.completed_c !== undefined ? task.completed_c : task.completed;
+        const dueDate = task.due_date_c || task.dueDate;
+        return !completed && dueDate === today;
+      }).length;
       
       const overdueTasks = tasks.filter(task => {
-        if (task.completed || !task.dueDate) return false;
-        return new Date(task.dueDate) < new Date(today);
+        const completed = task.completed_c !== undefined ? task.completed_c : task.completed;
+        const dueDate = task.due_date_c || task.dueDate;
+        if (completed || !dueDate) return false;
+        return new Date(dueDate) < new Date(today);
       }).length;
       
       setStats({
