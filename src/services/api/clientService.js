@@ -42,33 +42,7 @@ class ClientService {
         return [];
       }
       
-      // Transform API response to match component expectations
-      console.log('Raw API response:', response.data);
-
-      const transformedData = (response.data || []).map(client => {
-        console.log('Raw client:', client);
-        const transformed = {
-          Id: client.Id,
-          name: client.Name,
-          company: client.company_c,
-          email: client.email_c,
-          phone: client.phone_c,
-          website: client.website_c,
-          address: client.address_c,
-          industry: client.industry_c,
-          status: client.status_c,
-          createdAt: client.created_at_c,
-          CreatedOn: client.CreatedOn,
-          ModifiedOn: client.ModifiedOn,
-          Tags: client.Tags,
-          projectCount: 0 // Will be calculated separately if needed
-        };
-        console.log('Transformed client:', transformed);
-        return transformed;
-      });
-
-      console.log('Final transformed data:', transformedData);
-      return transformedData;
+      return response.data || [];
     } catch (error) {
       console.error("Error fetching clients:", error?.response?.data?.message || error.message);
       return [];
